@@ -7,7 +7,6 @@ export function validateRequest(validators: RequestValidators) {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             if (validators.body) {
-                console.log("VAFALLS");
                 req.body = await validators.body.parseAsync(req.body);
             }
             next();
